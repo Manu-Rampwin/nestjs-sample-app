@@ -22,4 +22,9 @@ export class TaskService {
         const result=await this.taskModel.findOneAndUpdate(taskDetails, updatedDetails,{new:true});
         return result;
     }  
+
+    async deleteTask(taskId:string){
+        const taskDeleted=await this.taskModel.findByIdAndDelete(taskId);
+        return taskDeleted;
+    }
 }
